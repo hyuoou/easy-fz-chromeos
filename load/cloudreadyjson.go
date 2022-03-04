@@ -10,7 +10,7 @@ import (
 
 func LoadCloudreadyJson(ChromeosDeviceList []ChromeOS) []ChromeOS {
 	fmt.Println("Downloadng cloudready_recovery.json")
-	err := exec.Command("wget", "-cloudready_recovery.json", "https://dl.google.com/dl/edgedl/chromeos/recovery/cloudready_recovery.json").Run()
+	err := exec.Command("wget", "-Ocloudready_recovery.json", "https://dl.google.com/dl/edgedl/chromeos/recovery/cloudready_recovery.json").Run()
 	if err != nil {
 		log.Fatalln(err)
 	}
