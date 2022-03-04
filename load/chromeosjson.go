@@ -29,5 +29,7 @@ func LoadChromeosJson() []ChromeOS {
 		log.Fatalln(err)
 	}
 
+	ChromeosDeviceList = LoadCloudreadyJson(ChromeosDeviceList)
+
 	return ChromeosDeviceList
 }

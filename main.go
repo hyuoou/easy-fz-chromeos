@@ -9,7 +9,6 @@ import (
 
 func main() {
 	ChromeosDeviceList := load.LoadChromeosJson()
-	ChromeosDeviceList = load.LoadCloudreadyJson(ChromeosDeviceList)
 
 	idx, err := load.ShowFuzzyfinder(ChromeosDeviceList)
 	if err != nil {
