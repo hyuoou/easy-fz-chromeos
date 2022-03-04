@@ -3,5 +3,4 @@
 Fuzzy find the URL to download the ChromeOS binary by device name.
 
 # DEMO
-![fz-chromeos](https://user-images.githubusercontent.com/63180765/156772085-d4a1ed68-0867-4675-b249-5e6e670b3963.gif)
-
+![fz-chromeos](https://user-images.githubusercontent.com/63180765/156784887-a947ee83-39bd-46c6-8c98-2e9523295dc5.gif)
