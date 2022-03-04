@@ -13,6 +13,9 @@ func ShowFuzzyfinder(ChromeosDeviceList []ChromeOS) (idx int, err error) {
 			return ChromeosDeviceList[i].Model
 		},
 		fuzzyfinder.WithPreviewWindow(func(i, width, height int) string {
+			if i == -1 {
+				return ""
+			}
 			return fmt.Sprintf("Channel       : %s\nFile          : %s\nFilesize      : %vB\nHwidmatch     : %s\nManufacturer  : %s\nMd5           : %s\nModel         : %s\nName          : %s\nSha1          : %s\nVersion       : %s\nZipfilesize   : %vB\nChromeVersion : %s\n",
 				ChromeosDeviceList[i].Channel,
 				ChromeosDeviceList[i].File,
