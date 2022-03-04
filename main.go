@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/hyuoou/easy-get-chromeos/load"
+	"github.com/hyuoou/easy-fz-chromeos/load"
 )
 
 func main() {
