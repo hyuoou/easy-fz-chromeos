@@ -1,4 +1,5 @@
 # easy-get-chromeos
 
-![fz-chromeos](https://user-images.githubusercontent.com/63180765/156771048-f5f97752-573f-44f4-9f9f-5b03f101ba29.gif)
-ChromeOSのバイナリをダウンロードするURLをモデル名でfuzzy findします。
+![fz-chromeos](https://user-images.githubusercontent.com/63180765/156772085-d4a1ed68-0867-4675-b249-5e6e670b3963.gif)
+
+Fuzzy find the URL to download the ChromeOS binary by device name.
