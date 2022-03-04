@@ -9,7 +9,7 @@ import (
 )
 
 func LoadChromeosJson() []ChromeOS {
-	fmt.Println("recovery.jsonをダウンロードしています。")
+	fmt.Println("Downloading recovery.json")
 	err := exec.Command("wget", "-Orecovery.json", "https://dl.google.com/dl/edgedl/chromeos/recovery/recovery.json").Run()
 	if err != nil {
 		log.Fatalln(err)
