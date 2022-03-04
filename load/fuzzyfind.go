@@ -6,8 +6,8 @@ import (
 	"github.com/ktr0731/go-fuzzyfinder"
 )
 
-func ShowFuzzyfinder(ChromeosDeviceList []ChromeOS) (idx int, err error) {
-	idx, err = fuzzyfinder.Find(
+func ShowFuzzyfinder(ChromeosDeviceList []ChromeOS) (int, error) {
+	idx, err := fuzzyfinder.Find(
 		ChromeosDeviceList,
 		func(i int) string {
 			return ChromeosDeviceList[i].Model
