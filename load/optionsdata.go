@@ -6,6 +6,6 @@ const (
 )
 
 type Options struct {
-	Version  bool `short:"v" long:"version" description:"Show version"`
-	Download bool `short:"d" long:"download" description:"Download ChromeOS for the selected model name"`
+	Version  bool         `short:"v" long:"version" description:"Show version"`
+	Download func(string) `short:"d" long:"download" description:"Download ChromeOS to the specified path"`
 }
