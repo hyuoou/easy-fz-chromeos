@@ -55,7 +55,7 @@ func main() {
 				log.Fatalln(err)
 			}
 			fmt.Println("Done")
-			return
+			os.Exit(0)
 		}()
 
 		quit := make(chan os.Signal)
