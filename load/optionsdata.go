@@ -1,8 +1,8 @@
 package load
 
 const (
-	version = "0.0.1"
-	appName = "easy-fz-chromeos"
+	AppVersion = "0.0.1"
+	AppName    = "easy-fz-chromeos"
 )
 
 type Options struct {

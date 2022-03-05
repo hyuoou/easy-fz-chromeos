@@ -11,7 +11,7 @@ func main() {
 	opts := load.Option()
 
 	if opts.Version {
-		fmt.Println(opts.Version)
+		fmt.Println(load.AppVersion)
 		return
 	}
 

@@ -10,7 +10,7 @@ import (
 func Option() Options {
 	var opts Options
 	parser := flags.NewParser(&opts, flags.Default)
-	parser.Name = appName
+	parser.Name = AppName
 	parser.Usage = "[OPTIONS]"
 	_, err := parser.Parse()
 	if err != nil {
