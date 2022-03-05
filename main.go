@@ -8,7 +8,9 @@ import (
 )
 
 func main() {
-	opts := load.Option()
+	DownloadCheck := false
+	var DownloadPath string
+	opts := load.Option(&DownloadCheck, &DownloadPath)
 
 	if opts.Version {
 		fmt.Println(load.AppVersion)
@@ -22,8 +24,8 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	if opts.Download {
-		load.Download(ChromeosDeviceList[idx].Url, ChromeosDeviceList[idx].File)
+	if DownloadCheck {
+		load.Download(ChromeosDeviceList[idx].Url, ChromeosDeviceList[idx].File, DownloadPath)
 	}
 
 	fmt.Printf("%s %s\n", ChromeosDeviceList[idx].Model, ChromeosDeviceList[idx].Url)

@@ -8,10 +8,10 @@ import (
 	"os/signal"
 )
 
-func Download(url string, fileName string) {
+func Download(url string, fileName string, downloadPath string) {
 	go func() {
 		fmt.Println("Start downloading ChromeOS for the selected model name. Please wait")
-		err := exec.Command("wget", url).Run()
+		err := exec.Command("wget", "-P", downloadPath, url).Run()
 		if err != nil {
 			log.Fatalln(err)
 		}
@@ -22,6 +22,7 @@ func Download(url string, fileName string) {
 	quit := make(chan os.Signal)
 	signal.Notify(quit, os.Interrupt)
 	<-quit
-	exec.Command("rm", fileName+".zip").Run()
+	filePath := downloadPath + "/" + fileName + ".zip"
+	exec.Command("rm", filePath).Run()
 	os.Exit(1)
 }
