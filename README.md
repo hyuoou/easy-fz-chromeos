@@ -14,9 +14,11 @@ Fuzzy find the URL to download the ChromeOS binary by device name.
 ```
 Usage:
   easy-fz-chromeos [OPTIONS]
+
 Application Options:
   -v, --version   Show version
-  -d, --download  Download ChromeOS for the selected model name
+  -d, --download= Download ChromeOS to the specified path
+
 Help Options:
   -h, --help      Show this help message
 ```
