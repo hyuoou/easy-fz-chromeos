@@ -12,7 +12,7 @@ func Option(downloadCheck *bool, downloadPath *string) Options {
 	opts.Download = func(s string) {
 		_, err := os.Stat(s)
 		if os.IsNotExist(err) {
-			log.Fatalln("Folder does not exist.")
+			log.Fatalln("Directory does not exist.")
 		}
 		*downloadCheck = true
 		*downloadPath = s
