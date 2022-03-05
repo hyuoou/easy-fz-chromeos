@@ -2,23 +2,5 @@
 
 Fuzzy find the URL to download the ChromeOS binary by device name.
 
-## DEMO
+# DEMO
 ![fz-chromeos](https://user-images.githubusercontent.com/63180765/156784887-a947ee83-39bd-46c6-8c98-2e9523295dc5.gif)
-
-## Usage
-```
-./easy-fz-chromeos
-```
-
-### Options
-```
-Usage:
-  easy-fz-chromeos [OPTIONS]
-
-Application Options:
-  -v, --version   Show version
-  -d, --download  Download ChromeOS for the selected model name
-
-Help Options:
-  -h, --help      Show this help message
-```

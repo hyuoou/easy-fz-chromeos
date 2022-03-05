@@ -3,40 +3,15 @@ package main
 import (
 	"fmt"
 	"log"
-	"os"
-	"os/exec"
-	"os/signal"
 
 	"github.com/hyuoou/easy-fz-chromeos/load"
-	"github.com/jessevdk/go-flags"
 )
-
-const (
-	version = "0.0.1"
-	appName = "easy-fz-chromeos"
-)
-
-type Options struct {
-	Version  bool `short:"v" long:"version" description:"Show version"`
-	Download bool `short:"d" long:"download" description:"Download ChromeOS for the selected model name"`
-}
 
 func main() {
-	var opts Options
-	parser := flags.NewParser(&opts, flags.Default)
-	parser.Name = appName
-	parser.Usage = "[OPTIONS]"
-	_, err := parser.Parse()
-	if err != nil {
-		if flags.WroteHelp(err) {
-			return
-		} else {
-			log.Fatalln(err)
-		}
-	}
+	opts := load.Option()
 
 	if opts.Version {
-		fmt.Println(version)
+		fmt.Println(opts.Version)
 		return
 	}
 
@@ -48,22 +23,7 @@ func main() {
 	}
 
 	if opts.Download {
-		go func() {
-			fmt.Println("Start downloading ChromeOS for the selected model name. Please wait")
-			err := exec.Command("wget", ChromeosDeviceList[idx].Url).Run()
-			if err != nil {
-				log.Fatalln(err)
-			}
-			fmt.Println("Done")
-			os.Exit(0)
-		}()
-
-		quit := make(chan os.Signal)
-		signal.Notify(quit, os.Interrupt)
-		<-quit
-		fileName := ChromeosDeviceList[idx].File + ".zip"
-		exec.Command("rm", fileName).Run()
-		os.Exit(1)
+		load.Download(ChromeosDeviceList[idx].Url, ChromeosDeviceList[idx].File)
 	}
 
 	fmt.Printf("%s %s\n", ChromeosDeviceList[idx].Model, ChromeosDeviceList[idx].Url)
