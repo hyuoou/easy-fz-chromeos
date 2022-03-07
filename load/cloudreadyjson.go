@@ -5,17 +5,24 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
-	"os/exec"
+	"net/http"
 )
 
 func LoadCloudreadyJson(ChromeosDeviceList []ChromeOS) []ChromeOS {
-	fmt.Println("Downloadng cloudready_recovery.json")
-	err := exec.Command("wget", "-Ocloudready_recovery.json", "https://dl.google.com/dl/edgedl/chromeos/recovery/cloudready_recovery.json").Run()
+	fmt.Println("Loadint cloudready_recovery.json")
+	url := "https://dl.google.com/dl/edgedl/chromeos/recovery/cloudready_recovery.json"
+	req, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	CloudreadyJson, err := ioutil.ReadFile("cloudready_recovery.json")
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	defer resp.Body.Close()
+
+	CloudreadyJson, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -25,11 +32,6 @@ func LoadCloudreadyJson(ChromeosDeviceList []ChromeOS) []ChromeOS {
 	}
 
 	ChromeosDeviceList = append(ChromeosDeviceList, CloudreadyList...)
-
-	err = exec.Command("rm", "cloudready_recovery.json").Run()
-	if err != nil {
-		log.Fatalln(err)
-	}
 
 	return ChromeosDeviceList
 }
