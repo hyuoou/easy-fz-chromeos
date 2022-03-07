@@ -5,27 +5,29 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
-	"os/exec"
+	"net/http"
 )
 
 func LoadChromeosJson() []ChromeOS {
-	fmt.Println("Downloading recovery.json")
-	err := exec.Command("wget", "-Orecovery.json", "https://dl.google.com/dl/edgedl/chromeos/recovery/recovery.json").Run()
+	fmt.Println("Loading recovery.json")
+	url := "https://dl.google.com/dl/edgedl/chromeos/recovery/recovery.json"
+	req, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	ChromeosJson, err := ioutil.ReadFile("recovery.json")
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	defer resp.Body.Close()
+
+	ChromeosJson, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		log.Fatalln(err)
 	}
 	var ChromeosDeviceList []ChromeOS
 	if err := json.Unmarshal(ChromeosJson, &ChromeosDeviceList); err != nil {
-		log.Fatalln(err)
-	}
-
-	err = exec.Command("rm", "recovery.json").Run()
-	if err != nil {
 		log.Fatalln(err)
 	}
 
