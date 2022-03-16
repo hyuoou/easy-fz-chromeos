@@ -10,6 +10,7 @@ import (
 func main() {
 	DownloadCheck := false
 	var DownloadPath string
+	// 引数を解析
 	opts := load.Option(&DownloadCheck, &DownloadPath)
 
 	if opts.Version {

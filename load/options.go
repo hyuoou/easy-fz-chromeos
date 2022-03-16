@@ -10,13 +10,16 @@ import (
 func Option(downloadCheck *bool, downloadPath *string) Options {
 	var opts Options
 	opts.Download = func(s string) {
+		// 引数で与えられたディレクトリが存在するか確認
 		_, err := os.Stat(s)
 		if os.IsNotExist(err) {
 			log.Fatalln("Directory does not exist.")
 		}
+
 		*downloadCheck = true
 		*downloadPath = s
 	}
+
 	parser := flags.NewParser(&opts, flags.Default)
 	parser.Name = AppName
 	parser.Usage = "[OPTIONS]"
