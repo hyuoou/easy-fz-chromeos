@@ -9,7 +9,7 @@ os_list=("windows" "darwin" "linux")
 arch_list=("amd64" "arm64")
 
 # 圧縮するか
-compression=false
+compression=true
 compression_format="tar.xz"
 
 # ディレクトリが存在するか確認
