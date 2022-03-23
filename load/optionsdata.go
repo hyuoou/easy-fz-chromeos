@@ -1,7 +1,7 @@
 package load
 
 const (
-	AppVersion = "0.0.1"
+	AppVersion = "0.0.2"
 	AppName    = "easy-fz-chromeos"
 )
 
