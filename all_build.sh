@@ -10,7 +10,6 @@ arch_list=("amd64" "arm64")
 
 # 圧縮するか
 compression=true
-compression_format="tar.xz"
 
 # ディレクトリが存在するか確認
 if [[ ! -d bin ]]; then
@@ -44,8 +43,8 @@ if [[ "${compression}" = "true" ]]; then
 	for os in "${os_list[@]}"; do
 		for arch in "${arch_list[@]}"; do
 			output_dir="${pkg_name}_${pkg_version}_${os}_${arch}"
-			tar -Jcf bin/"${output_dir}"."${compression_format}" bin/"${output_dir}"
-			echo "${output_dir}"フォルダを"${compression_format}"で圧縮
+			tar -Jcf bin/"${output_dir}".tar.xz bin/"${output_dir}"
+			echo "${output_dir}"フォルダを圧縮
 		done
 	done
 fi
