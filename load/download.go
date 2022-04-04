@@ -23,6 +23,6 @@ func Download(url string, fileName string, downloadPath string) {
 	signal.Notify(quit, os.Interrupt)
 	<-quit
 	filePath := downloadPath + "/" + fileName + ".zip"
-	exec.Command("rm", filePath).Run()
+	os.Remove(filePath)
 	os.Exit(1)
 }
