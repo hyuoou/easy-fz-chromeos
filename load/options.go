@@ -7,7 +7,7 @@ import (
 	"github.com/jessevdk/go-flags"
 )
 
-func Option(downloadCheck *bool, downloadPath *string) Options {
+func Option(downloadCheck *bool, downloadPath *string, checkSum *bool) Options {
 	var opts Options
 	opts.Download = func(s string) {
 		// 引数で与えられたディレクトリが存在するか確認
@@ -17,6 +17,7 @@ func Option(downloadCheck *bool, downloadPath *string) Options {
 		}
 
 		*downloadCheck = true
+		*checkSum = true
 		*downloadPath = s
 	}
 
