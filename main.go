@@ -9,10 +9,9 @@ import (
 
 func main() {
 	DownloadCheck := false
-	CheckSum := false
-	var DownloadPath string
+	DownloadPath := ""
 	// 引数を解析
-	opts := load.Option(&DownloadCheck, &DownloadPath, &CheckSum)
+	opts := load.Option(&DownloadCheck, &DownloadPath)
 
 	if opts.Version {
 		fmt.Println(load.AppVersion)
@@ -27,7 +26,7 @@ func main() {
 	}
 
 	if DownloadCheck {
-		load.Download(ChromeosDeviceList[idx].Url, ChromeosDeviceList[idx].File, DownloadPath, ChromeosDeviceList[idx].Sha1, CheckSum)
+		load.Download(ChromeosDeviceList[idx].Url, ChromeosDeviceList[idx].File, DownloadPath, ChromeosDeviceList[idx].Sha1)
 	}
 
 	fmt.Printf("%s %s\n", ChromeosDeviceList[idx].Model, ChromeosDeviceList[idx].Url)
