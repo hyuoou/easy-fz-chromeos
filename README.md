@@ -16,7 +16,6 @@ Usage:
   easy-fz-chromeos [OPTIONS]
 
 Application Options:
-  -v, --version   Show version
   -d, --download  Open a browser and download the file
 
 Help Options:

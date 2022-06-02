@@ -11,11 +11,6 @@ import (
 func main() {
 	opts := load.FlagParse()
 
-	if opts.Version {
-		fmt.Println(load.AppVersion)
-		os.Exit(0)
-	}
-
 	chromeosList := load.LoadJson()
 	idx, err := load.Finder(chromeosList)
 	if err != nil {
