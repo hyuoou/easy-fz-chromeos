@@ -10,6 +10,11 @@ type Options struct {
 	Download func(string) `short:"d" long:"download" description:"Download ChromeOS to the specified path"`
 }
 
+type DonwloadOptions struct {
+	DownloadCheck bool
+	DownloadPath  string
+}
+
 type ChromeOS struct {
 	Channel       string `json:"channel"`
 	File          string `json:"file"`
