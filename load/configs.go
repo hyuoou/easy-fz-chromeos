@@ -1,10 +1,5 @@
 package load
 
-const (
-	AppVersion = "0.1.0"
-	AppName    = "easy-fz-chromeos"
-)
-
 type ChromeOS struct {
 	Channel       string `json:"channel"`
 	File          string `json:"file"`
