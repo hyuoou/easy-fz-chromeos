@@ -3,31 +3,29 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 
 	"github.com/hyuoou/easy-fz-chromeos/load"
 )
 
 func main() {
-	DownloadCheck := false
-	DownloadPath := ""
-	// 引数を解析
-	opts := load.Option(&DownloadCheck, &DownloadPath)
+	opts := load.FlagParse()
 
 	if opts.Version {
 		fmt.Println(load.AppVersion)
-		return
+		os.Exit(0)
 	}
 
-	ChromeosDeviceList := load.LoadChromeosJson()
-
-	idx, err := load.ShowFuzzyfinder(ChromeosDeviceList)
+	chromeosList := load.LoadJson()
+	idx, err := load.Finder(chromeosList)
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	if DownloadCheck {
-		load.Download(ChromeosDeviceList[idx].Url, ChromeosDeviceList[idx].File, DownloadPath, ChromeosDeviceList[idx].Sha1)
+	if opts.Download {
+		load.Download(chromeosList[idx].Url)
+		os.Exit(0)
 	}
 
-	fmt.Printf("%s %s\n", ChromeosDeviceList[idx].Model, ChromeosDeviceList[idx].Url)
+	fmt.Printf("%s: %s\n", chromeosList[idx].Model, chromeosList[idx].Url)
 }
