@@ -23,7 +23,7 @@ func main() {
 	}
 
 	if opts.Download {
-		fmt.Println("Donwload")
+		load.Download(chromeosList[idx].Url)
 		os.Exit(0)
 	}
 
