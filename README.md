@@ -7,7 +7,8 @@ Fuzzy find the URL to download the ChromeOS binary by device name.
 
 ## Usage
 ```
-./easy-fz-chromeos
+go install github.com/hyuoou/easy-fz-chromeos@latest
+easy-fz-chromeos
 ```
 
 ### Options
