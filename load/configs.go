@@ -1,5 +1,10 @@
 package load
 
+type Options struct {
+	Version  bool `short:"v" long:"version" description:"Show version"`
+	Download bool `short:"d" long:"download" description:"Open a browser and download the file"`
+}
+
 type ChromeOS struct {
 	Channel       string `json:"channel"`
 	File          string `json:"file"`
