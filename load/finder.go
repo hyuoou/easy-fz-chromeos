@@ -16,7 +16,7 @@ func Finder(chromeosList []ChromeOS) (int, error) {
 			if i == -1 {
 				return ""
 			}
-			return fmt.Sprintf("Channel       : %s\nFile          : %s\nFilesize      : %vB\nHwidmatch     : %s\nManufacturer  : %s\nMd5           : %s\nModel         : %s\nName          : %s\nSha1          : %s\nVersion       : %s\nZipfilesize   : %vB\nchromeosList : %s\n",
+			return fmt.Sprintf("Channel       : %s\nFile          : %s\nFilesize      : %vB\nHwidmatch     : %s\nManufacturer  : %s\nMd5           : %s\nModel         : %s\nName          : %s\nSha1          : %s\nVersion       : %s\nZipfilesize   : %vB\nchromeosList  : %s\n",
 				chromeosList[i].Channel,
 				chromeosList[i].File,
 				chromeosList[i].Filesize,
