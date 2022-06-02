@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/hyuoou/easy-fz-chromeos/load"
 )
@@ -9,7 +10,10 @@ import (
 func main() {
 	chromeosList := load.LoadJson()
 
-	for i := range chromeosList {
-		fmt.Printf("%s: %s\n", chromeosList[i].Model, chromeosList[i].Url)
+	idx, err := load.Finder(chromeosList)
+	if err != nil {
+		log.Fatalln(err)
 	}
+
+	fmt.Printf("%s: %s\n", chromeosList[idx].Model, chromeosList[idx].Url)
 }
