@@ -1,5 +1,15 @@
 package load
 
+const (
+	AppVersion = "0.1.0"
+	AppName    = "easy-fz-chromeos"
+)
+
+type Options struct {
+	Version  bool         `short:"v" long:"version" description:"Show version"`
+	Download func(string) `short:"d" long:"download" description:"Download ChromeOS to the specified path"`
+}
+
 type ChromeOS struct {
 	Channel       string `json:"channel"`
 	File          string `json:"file"`
