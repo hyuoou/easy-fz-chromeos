@@ -17,7 +17,7 @@ Usage:
 
 Application Options:
   -v, --version   Show version
-  -d, --download= Download ChromeOS to the specified path
+  -d, --download  Open a browser and download the file
 
 Help Options:
   -h, --help      Show this help message
