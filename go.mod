@@ -1,6 +1,6 @@
 module github.com/hyuoou/easy-fz-chromeos
 
-go 1.21
+go 1.20
 
 require (
 	github.com/jessevdk/go-flags v1.5.0
